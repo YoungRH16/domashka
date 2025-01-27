@@ -159,7 +159,7 @@ int main()
     //3
     //cout << Max_word(strl) << endl;
     
-    /*//4
+    //4
     char* str2 = new char[n];
     cin.getline(str2, n - 1);
     
@@ -169,17 +169,17 @@ int main()
         str1[i] = strl[i - 1];
     str1[len(strl, n) + 1] = ' ';
     cout << findWord(str1, str2, n) << endl;
-     
-    delete[]str1
-    delete[]str2*/
     
-    //5
+    delete[]str1;
+    delete[]str2;
+    
+    /*//5
     char* str1 = new char[n+2];
     str1[0] = ' ';
     for(int i = 1; i <= len(strl, n); i++)
         str1[i] = strl[i - 1];
     str1[len(strl, n) + 1] = ' ';
-    //corrector(str1, n+2)
+    //corrector(str1, n+2)*/
     
     
     delete[]strl;
