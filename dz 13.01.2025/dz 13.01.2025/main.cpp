@@ -2,7 +2,7 @@
 //  main.cpp
 //  dz 13.01.2025
 //
-//  Created by Альберт Закиров on 01.02.2025.
+//  Created by Альберт Закиров on 14.01.2025.
 //
 
 #include <iostream>
