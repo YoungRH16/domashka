@@ -1,0 +1,188 @@
+Задание 1:
+#include <iostream>
+using namespace std;
+
+
+void vvodMas(int* mas, int n){
+    cout << "Enter mas: ";
+    for(int i = 0; i < n; i++){
+        cin >> mas[i];
+    }
+}
+
+void vyvodMas(int* mas, int n){
+    cout << endl;
+    for(int i = 0; i < n; i++){
+        cout << mas[i] << " ";
+    }
+    cout << endl;
+}
+
+int ex1(int*mas, int n){
+    int count = 0;
+    for(int i = 0; i < n; i++){
+        if(mas[i] % 2 == 0)
+            count++;
+    }
+    return count;
+}
+
+int main() {
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    int* mas = new int[n]{};
+    vvodMas(mas, n);
+    vyvodMas(mas, n);
+    cout << "Ans: " << ex1(mas, n) << endl;
+    delete[]mas;
+    return 0;
+}
+
+
+
+
+Задание 2:
+#include <iostream>
+using namespace std;
+
+void vvod(int** matr, int n, int m){
+    cout << "Enter the matr: " << endl;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            cin >> matr[i][j];
+        }
+    }
+}
+
+void vyvod(int** matr, int n, int m){
+    cout << endl;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            cout << matr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+int ex2(int** matr, int n, int m){
+    int count = 0;
+    for(int j = 0; j < m; j++){
+        int otr = 0;
+        for(int i = 0; i < n; i++){
+            if(matr[i][j] < 0)
+                otr++;
+        }
+        if(otr > 0)
+            count++;
+    }
+    return count;
+}
+
+int main() {
+    int n, m;
+    cout << "n: ";
+    cin >> n;
+    cout << "m: ";
+    cin >> m;
+    
+    int** matr = new int*[n];
+    for(int i = 0; i < n; i++){
+        matr[i] = new int[m];
+    }
+    
+    vvod(matr, n, m);
+    vyvod(matr, n, m);
+    
+    cout << "Ans: " << ex2(matr, n, m) << endl;
+    
+    for(int i = 0; i < n; i++){
+        delete[]matr[i];
+    }
+    delete[]matr;
+    
+    return 0;
+}
+
+Задание 3:
+#include <iostream>
+using namespace std;
+
+
+void vvod(char* s){
+    cin.getline(s, 100);
+}
+
+void vyvod(char* s){
+    cout << s << endl;
+}
+
+void ex3(char* s){
+    int i = 0;
+    int k = 0;
+    char* ans = new char[100];
+    while(s[i] != '\0'){
+        bool p1 = s[i] =='e';
+        bool p2 = s[i] =='u';
+        bool p3 = s[i] =='i';
+        bool p4 = s[i] =='o';
+        bool p5 = s[i] =='a';
+        bool p6 = s[i] =='y';
+        int fl = 0;
+        if(p1 or p2 or p3 or p4 or p5 or p6){
+            k++;
+            fl = 1;
+        }
+        if(fl == 0)
+            ans[i-k] = s[i];
+        i++;
+    }
+    vyvod(ans);
+    delete[]ans;
+}
+
+
+int main() {
+    char* s = new char[100];
+    vvod(s);
+    ex3(s);
+    delete[]s;
+    return 0;
+}
+
+Задание 4:
+#include <iostream>
+using namespace std;
+
+void vvod(int* mas, int n){
+    cout << "Enter sorted mas: ";
+    for(int i = 0; i < n; i++){
+        cin >> mas[i];
+    }
+}
+
+int bin(int* mas, int t, int beg, int end){
+    int mid = beg + (end - beg) / 2;
+
+    if (mas[mid] == t) {
+        return mid;
+    } else if (mas[mid] > t) {
+        return bin(mas, beg, mid - 1, t);
+    } else {
+        return bin(mas, mid + 1, end, t);
+    }
+}
+
+int main() {
+    int n, t;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    int* mas = new int[n];
+    vvod(mas, n);
+    cout << "Enter target element from mas: ";
+    cin >> t;
+    cout << "index: "<< bin(mas, t, 0, n) << endl;
+    delete[]mas;
+    return 0;
+}

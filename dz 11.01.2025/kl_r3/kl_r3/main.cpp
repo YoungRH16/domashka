@@ -22,7 +22,8 @@ void inputMass(int mass[], int size) {
 int maxElement(int mass[], int size) {
     int max = mass[0];
     for (int i = 0; i < size; i++) {
-        if (mass[i] > max) max = mass[i];
+        if (mass[i] > max)
+            max = mass[i];
     }
 
     return max;

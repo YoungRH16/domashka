@@ -10,7 +10,10 @@ using namespace std;
 
 bool Xor(bool x, bool y) {
     int c = 0;
-    if (x) c += 1; if (y) c += 1;
+    if (x)
+        c += 1;
+    if (y)
+        c += 1;
     return (c == 1);
 }
 

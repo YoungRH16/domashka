@@ -52,5 +52,5 @@ int main() {
     }
 
     cout << "Min: " << minElemnt(matr, n, m) << endl;
-    cout << "Max: " << maxElemnt(matr, n, m);
+    cout << "Max: " << maxElemnt(matr, n, m)<<endl;
 }
